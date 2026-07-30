@@ -1,0 +1,87 @@
+# ===========================
+# Maven
+# ===========================
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# ===========================
+# Java
+# ===========================
+*.class
+*.jar
+*.war
+*.ear
+*.log
+hs_err_pid*
+replay_pid*
+
+# ===========================
+# Spring Boot
+# ===========================
+logs/
+log/
+*.log
+
+# ===========================
+# IDE - Spring Tool Suite / Eclipse
+# ===========================
+.project
+.classpath
+.settings/
+.springBeans
+.sts4-cache/
+
+# ===========================
+# IntelliJ IDEA
+# ===========================
+.idea/
+*.iml
+out/
+
+# ===========================
+# Visual Studio Code
+# ===========================
+.vscode/
+
+# ===========================
+# Sistema Operativo
+# ===========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ===========================
+# Archivos temporales
+# ===========================
+*.tmp
+*.temp
+*.swp
+*.bak
+
+# ===========================
+# Variables de entorno
+# ===========================
+.env
+.env.*
+
+# ===========================
+# H2 (Opcional)
+# Si quieres subir la BD de prueba,
+# comenta estas líneas.
+# ===========================
+*.mv.db
+*.trace.db
+
+# ===========================
+# Maven Wrapper (SI se recomienda subir)
+# ===========================
+!.mvn/wrapper/maven-wrapper.jar
+!mvnw
+!mvnw.cmd
