@@ -1,0 +1,62 @@
+<div class="login-container">
+
+  <h2>
+    Sistema de Transacciones
+  </h2>
+
+
+  <h3>
+    Login
+  </h3>
+
+
+  <div class="form-group">
+
+    <label>
+      Usuario
+    </label>
+
+    <input 
+      type="text"
+      [(ngModel)]="usuario"
+      placeholder="Ingrese usuario">
+
+  </div>
+
+
+  <br>
+
+
+  <div class="form-group">
+
+    <label>
+      Password
+    </label>
+
+    <input 
+      type="password"
+      [(ngModel)]="password"
+      placeholder="Ingrese password">
+
+  </div>
+
+
+  <br>
+
+
+  <button 
+      type="button"
+      (click)="ingresar()">
+
+      Ingresar
+
+  </button>
+
+
+
+  <p *ngIf="mensaje">
+      {{mensaje}}
+  </p>
+
+
+</div>
