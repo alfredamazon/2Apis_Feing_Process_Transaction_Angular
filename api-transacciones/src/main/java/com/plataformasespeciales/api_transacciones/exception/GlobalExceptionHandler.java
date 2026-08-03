@@ -10,6 +10,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Map<String, String> manejarValidaciones(
@@ -21,17 +22,48 @@ public class GlobalExceptionHandler {
         ex.getBindingResult()
                 .getFieldErrors()
                 .forEach(error ->
-
                         errores.put(
                                 error.getField(),
                                 error.getDefaultMessage()
                         )
-
                 );
 
         return errores;
-
     }
+
+
+
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map<String, String> manejarRuntime(
+            RuntimeException ex
+    ) {
+
+        Map<String, String> error = new HashMap<>();
+
+
+        if ("Error al descifrar AES".equals(ex.getMessage())) {
+
+            error.put(
+                    "error",
+                    "Error al descifrar AES"
+            );
+
+            return error;
+        }
+
+
+        error.put(
+                "error",
+                ex.getMessage()
+        );
+
+
+        return error;
+    }
+
+
+
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)

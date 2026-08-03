@@ -42,5 +42,10 @@ public class AESEncryptTest {
                 Base64.getEncoder()
                         .encodeToString(encrypted)
         );
+        System.out.println("Texto original: " + texto);
+
+        System.out.println("Secreto AES:");
+
+        System.out.println(encrypted);
     }
 }

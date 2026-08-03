@@ -76,16 +76,17 @@ export class LoginComponent {
       },
 
 
-      error: (error: any) => {
+error: (error: any) => {
 
+  console.log("===== ERROR COMPLETO =====");
+  console.log(error);
+  console.log("Status:", error.status);
+  console.log("Body:", error.error);
+  console.log("Mensaje:", error.message);
 
-        console.error(error);
+  this.mensaje = 'Usuario o contraseña incorrectos';
 
-
-        this.mensaje = 'Usuario o contraseña incorrectos';
-
-
-      }
+}
 
 
     });

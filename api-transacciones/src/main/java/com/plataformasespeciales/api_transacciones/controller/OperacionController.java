@@ -8,15 +8,23 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/operaciones")
+@CrossOrigin(
+    origins = {
+        "http://localhost:4200",
+        "http://localhost:4300"
+    }
+)
 public class OperacionController {
 
     private final OperacionService service;
+
 
     public OperacionController(
             OperacionService service
     ) {
         this.service = service;
     }
+
 
     @PostMapping
     public OperacionResponse registrarOperacion(
