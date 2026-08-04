@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+
+  api-transacciones:
+    build:
+      context: ./api-transacciones
+    container_name: api-transacciones
+    ports:
+      - "8080:8080"
+    depends_on:
+      - h2
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:h2:tcp://h2:1521/./data/transaccionesdb
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD:
+
+
+  api-procesador:
+    build:
+      context: ./api-procesador
+    container_name: api-procesador
+    ports:
+      - "8081:8081"
+    depends_on:
+      - h2
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:h2:tcp://h2:1521/./data/transaccionesdb
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD:
+
+
+  frontend:
+    build:
+      context: ./transacciones-front
+    container_name: transacciones-front
+    ports:
+      - "4200:4200"
+    depends_on:
+      - api-transacciones
+      - api-procesador
+
+
+  h2:
+    image: oscarfonts/h2
+    container_name: h2-database
+    ports:
+      - "1521:1521"
+      - "8082:81"
+    environment:
+      H2_OPTIONS: -ifNotExists
+    volumes:
+      - h2-data:/opt/h2-data
+
+
+volumes:
+  h2-data:
